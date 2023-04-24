@@ -34,8 +34,16 @@ Table evaluations {
   id_cours integer [not null]
 }
 
+Table assistants {
+  id_etudiant integer [primary key]
+  id_cours integer [primary key]
+  bureau varchar [not null]
+}
+
 Ref: inscriptions.id_etudiant > etudiants.matricule
 Ref: inscriptions.id_cours > cours.id_cours
 Ref: cours.id_professeur > professeurs.id_professeur
 Ref: evaluations.id_etudiant > inscriptions.id_etudiant
 Ref: evaluations.id_cours > inscriptions.id_cours
+Ref: assistants.id_etudiant > etudiants.matricule
+Ref: assistants.id_cours > cours.id_cours
